@@ -9,13 +9,11 @@ import java.sql.SQLException;
 public class BaseDatos {
     private Connection conexion;
 
-    // Constructor que establece la conexión de base de datos
     public BaseDatos() {
         try {
-            // Conexión usando XAMPP (MySQL), cambiar si es necesario
             String url = "jdbc:mysql://localhost:3306/supermercado";
             String usuario = "root";
-            String contrasena = ""; // Cambiar si tu MySQL tiene contraseña
+            String contrasena = ""; 
 
             conexion = DriverManager.getConnection(url, usuario, contrasena);
             System.out.println("Conexión establecida con la base de datos.");
@@ -24,7 +22,6 @@ public class BaseDatos {
         }
     }
 
-    // Método para guardar una venta
     public void guardarVenta(String nombreCajero, int clientesAtendidos, double totalVentas) {
         if (conexion == null) {
             System.out.println("Conexión no establecida. No se puede guardar la venta.");
@@ -44,7 +41,6 @@ public class BaseDatos {
         }
     }
 
-    // Método para mostrar resultados de la tabla 'ventas'
     public void mostrarResultados() {
         if (conexion == null) {
             System.out.println("Conexión no establecida. No se pueden mostrar los resultados.");
@@ -67,7 +63,6 @@ public class BaseDatos {
         }
     }
 
-    // Método para borrar datos de la tabla 'ventas'
     public void borrarDatos() {
         if (conexion == null) {
             System.out.println("Conexión no establecida. No se pueden borrar los datos.");
